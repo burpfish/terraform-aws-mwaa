@@ -80,8 +80,8 @@ module "mwaa" {
   source = "../.."
 
   name              = var.name
-  airflow_version   = "2.2.2"
-  environment_class = "mw1.medium"
+  airflow_version   = "2.4.3"
+  environment_class = "mw1.small"
   create_s3_bucket  = false
   source_bucket_arn = aws_s3_bucket.this.arn
   dag_s3_path       = "dags"
@@ -125,7 +125,7 @@ module "mwaa" {
   }
 
   min_workers        = 1
-  max_workers        = 2
+  max_workers        = 1
   vpc_id             = module.vpc.vpc_id
   private_subnet_ids = module.vpc.private_subnets
 
